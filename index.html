@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QuizForge — Quiz Builder</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><span class="logo">Q</span> QuizForge</div>
+    <button id="clearAll" class="ghost danger">Clear all</button>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <p class="eyebrow">QUIZ BUILDER</p>
+      <h1>Create your own quiz.</h1>
+      <p class="subtitle">Add questions, choose the correct answer, then launch the quiz.</p>
+    </section>
+
+    <section id="builderView" class="grid">
+      <div class="card editor">
+        <div class="card-head">
+          <h2>Add a question</h2>
+          <span id="questionCount" class="pill">0 questions</span>
+        </div>
+
+        <label for="question">Question</label>
+        <textarea id="question" rows="4" placeholder="Type your question here..."></textarea>
+
+        <div class="options-title">
+          <label>Multiple-choice options</label>
+          <span class="hint">Click the radio button to mark the correct answer.</span>
+        </div>
+
+        <div id="options"></div>
+
+        <button id="addOption" class="link-btn">+ Add another option</button>
+
+        <div class="actions">
+          <button id="saveQuestion" class="primary">Add question</button>
+          <button id="resetForm" class="secondary">Reset</button>
+        </div>
+      </div>
+
+      <div class="card preview">
+        <div class="card-head">
+          <h2>Your questions</h2>
+        </div>
+        <div id="questionList" class="question-list">
+          <div class="empty">
+            <div class="empty-icon">?</div>
+            <h3>No questions yet</h3>
+            <p>Add your first question using the form.</p>
+          </div>
+        </div>
+        <button id="startQuiz" class="primary full" disabled>Start quiz</button>
+      </div>
+    </section>
+
+    <section id="quizView" class="quiz-view hidden">
+      <div class="quiz-top">
+        <button id="backToBuilder" class="ghost">← Back to builder</button>
+        <span id="progress"></span>
+      </div>
+      <div class="progress-bar"><div id="progressFill"></div></div>
+
+      <div class="card quiz-card">
+        <p class="eyebrow">QUESTION <span id="questionNumber"></span></p>
+        <h2 id="quizQuestion"></h2>
+        <div id="quizOptions"></div>
+        <button id="nextQuestion" class="primary full" disabled>Next</button>
+      </div>
+    </section>
+
+    <section id="resultView" class="result-view hidden">
+      <div class="card result-card">
+        <p class="eyebrow">QUIZ COMPLETE</p>
+        <div class="score-circle"><span id="score"></span><small>%</small></div>
+        <h2 id="resultTitle">Nice work!</h2>
+        <p id="resultText"></p>
+        <div class="result-actions">
+          <button id="retryQuiz" class="primary">Try again</button>
+          <button id="resultBuilder" class="secondary">Back to builder</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>QuizForge • Built as a simple client-side quiz builder</footer>
+  <script src="script.js"></script>
+</body>
+</html>
